@@ -398,35 +398,6 @@ public final class ToolConfiguration {
         return signerConfiguration;
     }
 
-    public AdminServiceConfiguration getAdminServiceConfiguration() {
-        if (adminServiceConfiguration == null) {
-            final String url = getString("adminservice.url");
-            final int timeout = getInt("adminservice.timeout", "", 1000);
-            adminServiceConfiguration = new AdminServiceConfiguration() {
-                @Override
-                public String getUrl() {
-                    return url;
-                }
-
-                @Override
-                public int getTimeout() {
-                    return timeout;
-                }
-
-                @Override
-                public IdentityServiceConfiguration getIdentityConfig() {
-                    return new IdentityServiceConfigurationStub();
-                }
-
-                @Override
-                public SignerConfiguration getSignerConfig() {
-                    return getSignerConfiguration();
-                }
-            };
-        }
-        return adminServiceConfiguration;
-    }
-
     /**
      * Gets validator configuration.
      *

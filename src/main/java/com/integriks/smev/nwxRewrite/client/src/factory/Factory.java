@@ -35,51 +35,6 @@ import java.util.ServiceLoader;
 public class Factory {
 
     /**
-     * Gets admin instance.
-     *
-     * @param config the config
-     * @return the admin instance
-     * @throws SMEVRuntimeException the smev runtime exception
-     */
-    public static AdminService getAdminInstance(AdminServiceConfiguration config) throws SMEVRuntimeException {
-        ServiceLoader<AdminLoader> loaders = ServiceLoader.load(AdminLoader.class);
-        for (AdminLoader loader : loaders) {
-            return loader.getAdmin(config);
-        }
-        throw new SMEVRuntimeException("Unable to load admin implementation");
-    }
-
-    /**
-     * Gets signer instance.
-     *
-     * @param config the config
-     * @return the signer instance
-     * @throws SMEVRuntimeException the smev runtime exception
-     */
-    public static Signer getSignerInstance(SignerConfiguration config) throws SMEVRuntimeException {
-        ServiceLoader<SignerLoader> services = ServiceLoader.load(SignerLoader.class);
-        for (SignerLoader loader : services) {
-            return loader.getSigner(config);
-        }
-        throw new SMEVRuntimeException("Unable to load signer implementation");
-    }
-
-    /**
-     * Gets identity generator instance.
-     *
-     * @param config the config
-     * @return the identity generator instance
-     * @throws SMEVRuntimeException the smev runtime exception
-     */
-    public static IdentityService getIdentityGeneratorInstance(IdentityServiceConfiguration config) throws SMEVRuntimeException {
-        ServiceLoader<IdentityLoader> services = ServiceLoader.load(IdentityLoader.class);
-        for (IdentityLoader loader : services) {
-            return loader.getIdentity(config);
-        }
-        throw new SMEVRuntimeException("Unable to load identity generator implementation");
-    }
-
-    /**
      * Gets validator instance.
      *
      * @param config the config
