@@ -26,7 +26,7 @@ public class SignController {
      * @return подписанный запрос в формате https://rm.mfc.ru/issues/9938
      * @throws Exception
      */
-    @RequestMapping(value = "/signSoap", method = RequestMethod.POST /*, consumes = "text/xml;charset=UTF-8", produces ="text/xml;charset=UTF-8"*/)
+    @RequestMapping(value = "/signSoap", method = RequestMethod.POST, consumes = "text/xml;charset=UTF-8", produces = "text/xml;charset=UTF-8")
     public ResponseEntity<String> signSoap(@RequestBody String xml) throws Exception {
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setIgnoringElementContentWhitespace(true);
